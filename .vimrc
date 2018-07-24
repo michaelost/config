@@ -78,3 +78,6 @@ function s:Cursor_Moved()
 endfunction
 autocmd CursorMoved,CursorMovedI * call s:Cursor_Moved()
 
+
+"...
+"
