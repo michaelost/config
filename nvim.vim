@@ -93,6 +93,17 @@ let g:esearch = {
   \}
 
 
+vnoremap <silent> <C-w>p2 :<C-U>P2<CR>
+vnoremap <silent> <C-w>p1 :<C-U>P1<CR>
+vnoremap <silent> <C-w>d1 :<C-U>D<CR>
+vnoremap <silent> <C-w>d2 :<C-U>D2<CR>
+vnoremap <silent> <C-w>d3 :<C-U>D3<CR>
+vnoremap <silent> <C-w>d4 :<C-U>D4<CR>
+vnoremap <silent> <C-w>j :<C-U>TOJS<CR>
+vnoremap <silent> <C-w>a1 :<C-U>Arr<CR>
+vnoremap <silent> <C-w>a2 :<C-U>Arr2<CR>
+
+
 set background = "dark"
 colorscheme palenight
 set termguicolors 
