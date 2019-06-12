@@ -93,6 +93,11 @@ let g:esearch = {
   \}
 
 
+
+nnoremap <F3> :set hlsearch!<CR>
+map <leader>r :NERDTreeFind<cr>
+map ,l :!node %<cr>
+
 vnoremap <silent> <C-w>p2 :<C-U>P2<CR>
 vnoremap <silent> <C-w>p1 :<C-U>P1<CR>
 vnoremap <silent> <C-w>d1 :<C-U>D<CR>
