@@ -96,6 +96,8 @@ let g:esearch = {
 
 nnoremap <F3> :set hlsearch!<CR>
 
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+
 "open nerdtree all file structure but opened current folder
 map <leader>r :NERDTreeFind<cr>
 "open nerdtree only curent folder
