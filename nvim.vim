@@ -115,6 +115,8 @@ vnoremap <silent> <C-w>a1 :<C-U>Arr<CR>
 vnoremap <silent> <C-w>a2 :<C-U>Arr2<CR>
 
 
+autocmd VimResized * wincmd =
+
 set background = "dark"
 colorscheme palenight
 set termguicolors 
