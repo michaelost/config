@@ -61,3 +61,47 @@ snippet ahc "a with class and href" b
 </a>
 endsnippet
 
+
+
+
+snippet stld "styled div" b
+const $1 = styled.div\`
+  $2
+\`
+endsnippet
+
+snippet rfc "react function component" b
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const $1 = () => {
+  $2
+}
+
+$1.propTypes = {
+
+}
+
+export defalut $1
+
+endsnippet
+
+snippet rm "map with react element" b
+{$1.map(el => <$2>)
+endsnippet
+
+snippet tgv "create tag with variable" b
+<$1>
+  {$2}
+</$1>
+endsnippet
+
+
+
+snippet wrap "wrap content into tg" b
+<$1>
+  ${VISUAL}
+</$1>
+endsnippet
+
+
