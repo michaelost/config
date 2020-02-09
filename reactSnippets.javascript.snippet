@@ -387,7 +387,20 @@ snippet font "font: " b
 endsnippet
 
 
+snippet  "customSnippet: " b
+import { useEffect, useState } from 'react'
+const use$1 = ($2) => {
+  const [$3, $4] = useState($5)
 
+  useEffect(() => {
+    document.addEventListener('click', $6)
+    return () => {
+      document.removeEventListener('click', $7)
+    }
+  })
+	return [$8]
+}
+endsnippet
 
 
 
