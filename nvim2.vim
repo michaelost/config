@@ -26,16 +26,24 @@ call plug#begin('~/.vim/autoload')
   Plug 'rking/ag.vim'
   Plug 'airblade/vim-gitgutter'
 
-
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
 
   Plug 'mattn/emmet-vim'
 
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+
+
 " coc for tslinting, auto complete and prettier
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " coc extensions
 let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+
 "------------------------ VIM TSX ------------------------
 " by default, if you open tsx file, neovim does not show syntax colors
 " vim-tsx will do all the coloring for jsx in the .tsx file
@@ -49,7 +57,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'dikiaap/minimalist'
 
   Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+"  Plug 'mhartington/nvim-typescript', {'build': './install.sh'}
 
   if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -60,10 +68,14 @@ Plug 'dikiaap/minimalist'
   endif
   let g:deoplete#enable_at_startup = 1
 
+"let g:python3_host_prog = '~/Python3.7.2'
+let g:python3_host_prog = '/usr/local/bin/python3.7'
 
 call plug#end()
 
 set wildignore+=*/node_modules
+set clipboard+=unnamedplus
+
 
 set tabstop=2 
 set softtabstop=2 
@@ -164,13 +176,17 @@ map <F8> "+p
 map <F9> "1y
 map <F12> "1p
 
+map fj "+P
 
-map bb :buffers <CR>
-map b1 :b1 <CR>
-map b2 :b2 <CR>
-map b3 :b3 <CR>
-map b4 :b4 <CR>
-map b5 :b5 <CR>
+map mm :buffers <CR>
+map m1 :b1 <CR>
+map m2 :b2 <CR>
+map m3 :b3 <CR>
+map m4 :b4 <CR>
+map m5 :b5 <CR>
+map m6 :b6 <CR>
+map m7 :b7 <CR>
+map m8 :b8 <CR>
 
 
 
@@ -190,3 +206,65 @@ set background = "dark"
 colorscheme palenight
 set termguicolors 
 
+
+
+" Set bin if you have many instalations
+let g:deoplete#sources#ternjs#tern_bin = '/home/michaelost/.nvm/versions/node/v10.12.0/bin/tern'
+let g:deoplete#sources#ternjs#timeout = 1
+
+" Whether to include the types of the completions in the result data. Default: 0
+let g:deoplete#sources#ternjs#types = 1
+
+" Whether to include the distance (in scopes for variables, in prototypes for 
+" properties) between the completions and the origin position in the result 
+" data. Default: 0
+let g:deoplete#sources#ternjs#depths = 1
+
+" Whether to include documentation strings (if found) in the result data.
+" Default: 0
+let g:deoplete#sources#ternjs#docs = 1
+
+" When on, only completions that match the current word at the given point will
+" be returned. Turn this off to get all results, so that you can filter on the 
+" client side. Default: 1
+let g:deoplete#sources#ternjs#filter = 0
+
+" Whether to use a case-insensitive compare between the current word and 
+" potential completions. Default 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
+" When completing a property and no completions are found, Tern will use some 
+" heuristics to try and return some properties anyway. Set this to 0 to 
+" turn that off. Default: 1
+let g:deoplete#sources#ternjs#guess = 0
+
+" Determines whether the result set will be sorted. Default: 1
+let g:deoplete#sources#ternjs#sort = 0
+
+" When disabled, only the text before the given position is considered part of 
+" the word. When enabled (the default), the whole variable name that the cursor
+" is on will be included. Default: 1
+let g:deoplete#sources#ternjs#expand_word_forward = 0
+
+" Whether to ignore the properties of Object.prototype unless they have been 
+" spelled out by at least two characters. Default: 1
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+
+" Whether to include JavaScript keywords when completing something that is not 
+" a property. Default: 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+
+" If completions should be returned when inside a literal. Default: 1
+let g:deoplete#sources#ternjs#in_literal = 0
+
+
+"Add extra filetypes
+let g:deoplete#sources#ternjs#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ ]
+
+
+
+let g:prettier#autoformat = 0
+let g:prettier#exec_cmd_path = "/home/michaelost/.nvm/versions/node/v10.12.0/bin/prettier"
