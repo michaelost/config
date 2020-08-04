@@ -268,3 +268,5 @@ let g:deoplete#sources#ternjs#filetypes = [
 
 let g:prettier#autoformat = 0
 let g:prettier#exec_cmd_path = "/home/michaelost/.nvm/versions/node/v10.12.0/bin/prettier"
+
+:nmap cp :let @+ = expand("%")<cr>
